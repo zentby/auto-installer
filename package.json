@@ -1,87 +1,95 @@
 {
-    "name": "auto-installer",
-    "displayName": "Extension Auto Installer",
-    "description": "Auto install extensions from private sources",
-    "publisher": "yangzhao",
-    "repository": "https://github.com/zentby/auto-installer",
-    "version": "1.0.0",
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.85.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "workspaceContains:.vscode/settings.json"
-    ],
-    "main": "./dist/extension.js",
-    "contributes": {
-        "configuration": [
-            {
-                "title": "Auto Installer",
-                "properties": {
-                    "auto-installer.extensions": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "id": {
-                                    "type": "string",
-                                    "description": "Extension id"
-                                },
-                                "uri": {
-                                    "type": "string",
-                                    "description": "Extension path or url. http(s):// or file:// or './extensions' (relative to workspace root)"
-                                }
-                            }
-                        },
-                        "default": [],
-                        "description": "List of extensions to install."
-                    },
-                    "auto-installer.disabled": {
-                        "type": "boolean",
-                        "default": false,
-                        "description": "Disable auto installer"
-                    }
+  "name": "auto-installer",
+  "displayName": "Extension Auto Installer",
+  "description": "Auto install extensions from private sources",
+  "publisher": "yangzhao",
+  "repository": "https://github.com/zentby/auto-installer",
+  "version": "1.0.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "auto install",
+    "extension install",
+    "private linke",
+    "private marketplace",
+    "marketplace"
+  ],
+  "activationEvents": [
+    "workspaceContains:.vscode/settings.json"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "Auto Installer",
+        "properties": {
+          "auto-installer.extensions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Extension id"
+                },
+                "uri": {
+                  "type": "string",
+                  "description": "Extension path or url. http(s):// or file:// or './extensions' (relative to workspace root)"
                 }
-            }
-        ]
-    },
-    "extensionDependencies": [
-        "mindaro-dev.file-downloader"
-    ],
-    "scripts": {
-        "vscode:prepublish": "rm -rf dist && npm run esbuild-base -- --minify",
-        "compile": "npm run esbuild-base -- --sourcemap",
-        "watch": "npm run esbuild-base -- --sourcemap --watch",
-        "pretest": "yarn run compile && yarn run lint",
-        "lint": "eslint src --ext ts --fix",
-        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
-        "test": "tsc -p . && vscode-test"
-    },
-    "devDependencies": {
-        "@microsoft/vscode-file-downloader-api": "^1.0.1",
-        "@types/mocha": "^10.0.6",
-        "@types/node": "18.x",
-        "@types/sinon": "^17.0.2",
-        "@types/vscode": "^1.85.0",
-        "@typescript-eslint/eslint-plugin": "^6.13.1",
-        "@typescript-eslint/parser": "^6.13.1",
-        "@vscode/test-cli": "^0.0.4",
-        "@vscode/test-electron": "^2.3.8",
-        "esbuild": "^0.19.10",
-        "eslint": "^8.54.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-jsdoc": "^46.9.1",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prefer-arrow": "^1.2.3",
-        "eslint-plugin-prettier": "^5.1.2",
-        "eslint-plugin-tslint": "^3.1.0",
-        "prettier": "^3.1.1",
-        "sinon": "^17.0.1",
-        "typescript": "^5.3.2"
-    },
-    "icon": "images/icon.png"
+              }
+            },
+            "default": [],
+            "description": "List of extensions to install."
+          },
+          "auto-installer.disabled": {
+            "type": "boolean",
+            "default": false,
+            "description": "Disable auto installer"
+          }
+        }
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "mindaro-dev.file-downloader"
+  ],
+  "scripts": {
+    "vscode:prepublish": "rm -rf dist && npm run esbuild-base -- --minify",
+    "compile": "npm run esbuild-base -- --sourcemap",
+    "watch": "npm run esbuild-base -- --sourcemap --watch",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts --fix",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "test": "tsc -p . && vscode-test"
+  },
+  "devDependencies": {
+    "@microsoft/vscode-file-downloader-api": "^1.0.1",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/sinon": "^17.0.2",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "esbuild": "^0.19.10",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^46.9.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-tslint": "^3.1.0",
+    "prettier": "^3.1.1",
+    "sinon": "^17.0.1",
+    "typescript": "^5.3.2"
+  },
+  "icon": "images/icon.png"
 }

@@ -4,8 +4,9 @@ This extension is designed for users who want to install extensions that are pri
 
 The extension would work better if the private extensions are integrated with [Extension Auto Updater](https://marketplace.visualstudio.com/items?itemName=yangzhao.auto-updater), which can automatically update your extensions from a private sources.
 
-- Extension Auto Installer (this extension) will install the extensions.
-- [Extension Auto Updater](https://marketplace.visualstudio.com/items?itemName=yangzhao.auto-updater) will manage the future updates for your extensions.
+✅ Extension Auto Installer (this extension) will install the extensions. - Private Distribution
+<br/>
+🟩 [Extension Auto Updater](https://marketplace.visualstudio.com/items?itemName=yangzhao.auto-updater) will manage the future updates for your extensions. - Continuous Delivery
 
 **If you only want to install extensions from the marketplace, you probably don't need this extension. Use [workspace recommended extension](https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions) instead.**
 
@@ -40,3 +41,8 @@ Add the extension you want to install to your workspace's `.vscode/settings.json
 ## Release Notes
 
 See [CHANGELOG](./CHANGELOG.md) section.
+
+## License
+
+This project is licensed under the MIT License.
+
